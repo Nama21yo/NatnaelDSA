@@ -174,7 +174,7 @@ public class ArrayUtil {
     }
     return sum;
   }
- //Palindrome String
+ //!!! Palindrome String
   public static boolean isPalindrome(String word) {
     char[] charArray = word.toCharArray();
     int start = 0;
