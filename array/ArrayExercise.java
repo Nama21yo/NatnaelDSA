@@ -1,5 +1,5 @@
 
-public class ArrayUtil {
+public class ArrayExercise {
 //! Arrays
   public static void arraydemo() {
     int[] myArray = new int[5];//Declaration and Intialization
@@ -41,7 +41,7 @@ public class ArrayUtil {
 
     int[] odds = new int[oddCount];
     int index = 0;
-    for(int i = 0;i<arr.length;i++) {
+    for(int i = 0;i < arr.length;i++) {
       if(arr[i] % 2 != 0) {
         odds[index] = arr[i];
         index++;
@@ -143,7 +143,7 @@ public class ArrayUtil {
     }
     return end;
   }
-  //Method 2-Without adding another array
+  //!!! Method 2-Without adding another array
   public static void takeZeros(int[] arr) {
     int j = 0;
     for(int i = 0; i < arr.length; i++) {
@@ -157,6 +157,7 @@ public class ArrayUtil {
       }
     }
   }
+  //
   //!!! Resizing Array in Java
   public static int[] resize(int[] arr, int capacity) {
     int[] temp = new int[capacity];
@@ -177,6 +178,7 @@ public class ArrayUtil {
  //!!! Palindrome String
   public static boolean isPalindrome(String word) {
     char[] charArray = word.toCharArray();
+    //Example noon = ['n','o','o','n'] toCharArray()
     int start = 0;
     int end = word.length()-1;
     while(start<end) {
@@ -189,7 +191,7 @@ public class ArrayUtil {
     return true;
   }
   public static void main(String[] args) {
-    ArrayUtil arrUtil = new ArrayUtil();
+    ArrayExercise arrUtil = new ArrayExercise();
     arraydemo();
     printArray(new int[] {5,8,4,4,3,6});
     oddOnly(new int[] {5,8,4,4,3,6});
