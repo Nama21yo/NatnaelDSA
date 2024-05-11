@@ -1,5 +1,7 @@
 package SinglyLinkedList;
 
+// import java.util.List;
+
 public class SinglyLinkedList {
   
 
@@ -44,6 +46,37 @@ public class SinglyLinkedList {
     newNode.next  = head;
     head = newNode;
   }
+  public void insertEnd(int value) {
+    ListNode newNode = new ListNode(value);
+    if(head == null) {
+      head = newNode;
+      return;
+    }
+    ListNode current = head;
+    while(current.next != null) {
+      current = current.next;
+    }
+    current.next = newNode;
+  }
+  public void insertanyPosition(int position, int value) {
+    ListNode node = new ListNode(value);
+    if(position == 1) {
+      node.next = head;
+      head = node;
+    } else {
+      // Depart them at the Position
+      ListNode previous  = head;
+      int count = 1;
+      while(count < position -1){
+        previous = previous.next;
+        count++;
+      }
+      //After Parting them put the value between them
+      ListNode current = previous.next;
+      previous.next = node;
+      node.next = current;
+    }
+  }
   //main method
   public static void main(String[] args) {
     SinglyLinkedList sll = new SinglyLinkedList();
@@ -74,5 +107,20 @@ public class SinglyLinkedList {
     System.out.println();
     //Printing the length
     System.out.println("Length is " + sll.length());
+
+    // Inserting at last
+    sll.insertEnd(4235);
+    sll.insertEnd(3455);
+    sll.insertEnd(6785);
+    sll.insertEnd(3536);
+    sll.display();
+
+    System.out.println();
+    // Inserting at any Position
+    sll.insertanyPosition(1, 235);
+    sll.insertanyPosition(3, 455);
+    sll.insertanyPosition(2, 785);
+    sll.insertanyPosition(13, 536);
+    sll.display();
   }
 }
