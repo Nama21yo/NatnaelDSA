@@ -2,7 +2,7 @@ package SinglyLinkedList;
 
 // import java.util.List;
 
-public class SinglyLinkedList {
+class SinglyLinkedList {
   
 
   private ListNode head;
@@ -17,8 +17,8 @@ public class SinglyLinkedList {
     }
   }
 
-  ////?
-  public void display(){//Printing ListNode
+  //! Printing ListNode
+  public void display(){
     ListNode current = head;
     while(current != null) {
       System.out.print(current.data + " --> ");
@@ -27,6 +27,7 @@ public class SinglyLinkedList {
     System.out.print("null");
   }
 
+  //! counting the number of Nodes
   public int length() {
     if(head == null) {
       return 0;
@@ -40,7 +41,7 @@ public class SinglyLinkedList {
     return count;
   }
 
-  //?Insertion
+  //! Insertion
   public void insertFirst(int value){
     ListNode newNode = new ListNode(value);
     newNode.next  = head;
@@ -77,6 +78,46 @@ public class SinglyLinkedList {
       node.next = current;
     }
   }
+
+  //! Deletion
+   public ListNode deleteFirst() {
+      if(head == null) {
+        return null;
+      }
+      ListNode temp = head;
+      head = head.next;
+      temp.next = null;
+      return temp;
+   }
+
+   public void delete(int position) {
+    if(position == 1) {
+      head = head.next;
+    } else {
+      ListNode previous = head;
+      int count = 1;
+      while (count < position -1) {
+        previous = previous.next;
+        count++;
+      }
+      ListNode current = previous.next;
+      previous.next = current.next;
+    }
+   }
+
+   public ListNode deleteLast() {
+    if (head == null || head.next == null) {
+      return head;
+    }
+    ListNode current = head;
+    ListNode previous = null;
+    while (current.next!=null) {
+      previous = current;
+      current = current.next;
+    }
+    previous.next = null;
+    return current;
+   }
   //main method
   public static void main(String[] args) {
     SinglyLinkedList sll = new SinglyLinkedList();
@@ -109,6 +150,7 @@ public class SinglyLinkedList {
     System.out.println("Length is " + sll.length());
 
     // Inserting at last
+    System.out.println("Insertion at last");
     sll.insertEnd(4235);
     sll.insertEnd(3455);
     sll.insertEnd(6785);
@@ -117,10 +159,25 @@ public class SinglyLinkedList {
 
     System.out.println();
     // Inserting at any Position
+    System.out.println("Insertion at any Position");
     sll.insertanyPosition(1, 235);
     sll.insertanyPosition(3, 455);
     sll.insertanyPosition(2, 785);
-    sll.insertanyPosition(13, 536);
+    sll.insertanyPosition(5, 536);
+    sll.display();
+
+    System.out.println("Delete the First Element: "+ sll.deleteFirst().data);
+    System.out.println("Delete the second Element: "+ sll.deleteFirst().data);
+    sll.display();
+
+
+    System.out.println("Delete the Last Element: "+ sll.deleteLast().data);
+    System.out.println("Delete the Last Element: "+ sll.deleteLast().data);
+    sll.display();
+
+    System.out.println("Delete at any Position");
+    sll.delete(1);
+    sll.delete(3);
     sll.display();
   }
 }

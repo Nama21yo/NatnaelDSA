@@ -50,7 +50,6 @@ class GFG {
 //? Types
 //Iterative
 // Java implementation of iterative Binary Search
-
 class BinarySearch {
 
 	// Returns index of x if it is present in arr[].
@@ -125,4 +124,31 @@ public class Searching {
     binarySearch binary = new binarySearch();
     System.out.println("Index is found at Position: " + binary.binarySearching(arr, start, end, addedElement));
   }
+}
+////
+public int ternarySearch(int[] array, int target) {
+        int left = 0;
+        int right = array.length - 1;
+        while (left <= right) {
+        int mid1 = left + (right - left) / 3;
+        int mid2 = left + 2 * (right - left) / 3;
+        if (array[mid1] == target) {
+        return mid1;
+        }
+        else if (array[mid2] == target) {
+        return mid2;
+        }
+        else if (target < array[mid1]) {
+        right = mid1 - 1;
+        }
+        else if (target > array[mid2]) {
+        left = mid2 + 1;
+        }
+        else {
+
+        left = mid1 + 1;
+        right = mid2 - 1;
+        }
+        }
+        return -1; // Element not found
 }
