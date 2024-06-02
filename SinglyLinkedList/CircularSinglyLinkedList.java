@@ -32,6 +32,14 @@ package SinglyLinkedList;
 
     head = first;
   }
+// insert Sorted
+  // public insertSorted(int value) {
+  //   boolean istheFirstHead = false;
+  //   ListNode previous = head;
+  //   while(previous.data > value) {
+  //     previous = previous.next;
+  //   }
+  // }
 
   public void display1() {
     ListNode current = head;
@@ -40,6 +48,7 @@ package SinglyLinkedList;
       current = current.next;
     } while (current!=head);
   }
+
 
   public void display2() {
     ListNode current = head;

@@ -1,6 +1,5 @@
 package SinglyLinkedList;
 
-// import java.util.List;
 
 class SinglyLinkedList {
   
@@ -40,8 +39,26 @@ class SinglyLinkedList {
     }
     return count;
   }
+  //! Searching in Linked list
+  public int search(int value) {
+    ListNode current = head;
+    int index = 0;
+    while(current != null) {
+      if(current.data == value) {
+        return index;
+      } 
+      current = current.next;
+      index++;
+    
+    }
+    return -1;
+  }
+  //! Delete by searching
+  // public int deleteValue(int value) {
 
-  //! Insertion
+  // }
+
+  //! Insertion or  Append
   public void insertFirst(int value){
     ListNode newNode = new ListNode(value);
     newNode.next  = head;
@@ -174,10 +191,13 @@ class SinglyLinkedList {
     System.out.println("Delete the Last Element: "+ sll.deleteLast().data);
     System.out.println("Delete the Last Element: "+ sll.deleteLast().data);
     sll.display();
+    System.out.println();
 
     System.out.println("Delete at any Position");
     sll.delete(1);
     sll.delete(3);
     sll.display();
+    System.out.println();
+    System.out.println("It is at index: "+sll.search(4235));
   }
 }
