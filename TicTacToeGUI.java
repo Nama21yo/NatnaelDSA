@@ -221,7 +221,7 @@ public class TicTacToeGUI extends JFrame {
         recentMoves.remove(lastMove);
 
         // After the Undo We switch the player (Optional)
-        // currentPlayer = switchPlayer(currentPlayer);
+        currentPlayer = switchPlayer(currentPlayer);
         statusLabel.setText("Player " + currentPlayer + "'s turn");
     }
 
